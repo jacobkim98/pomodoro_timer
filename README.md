@@ -24,25 +24,97 @@
 | 알림 | flutter_local_notifications |
 | 기타 | wakelock_plus, percent_indicator |
 
+## 요구 사항
+
+- Flutter SDK 3.0 이상
+- Dart 3.0 이상
+- Android Studio 또는 VS Code (Flutter 플러그인 설치)
+
+### Android
+- Android SDK 21 (Android 5.0) 이상
+- Android 에뮬레이터 또는 실제 기기
+
+### iOS
+- macOS 환경 필수
+- Xcode 14 이상
+- iOS 12.0 이상
+- iOS 시뮬레이터 또는 실제 기기
+
 ## 설치 및 실행
 
 ```bash
+# 저장소 클론
+git clone https://github.com/jacobkim98/pomodoro_timer.git
+cd pomodoro_timer
+
 # 의존성 설치
 flutter pub get
+```
+
+### Android 실행
+
+```bash
+# 연결된 기기/에뮬레이터 확인
+flutter devices
+
+# Android 에뮬레이터 실행 (Android Studio에서 AVD Manager로 생성)
+flutter emulators --launch <emulator_id>
 
 # 앱 실행
 flutter run
+
+# 특정 Android 기기에서 실행
+flutter run -d <device_id>
 ```
+
+### iOS 실행 (macOS 전용)
+
+```bash
+# iOS 시뮬레이터 실행
+open -a Simulator
+
+# 앱 실행
+flutter run
+
+# 특정 iOS 시뮬레이터에서 실행
+flutter run -d "iPhone 15 Pro"
+
+# 실제 iOS 기기에서 실행 (개발자 계정 필요)
+flutter run -d <device_id>
+```
+
+> **Note**: iOS 실제 기기에서 실행하려면 Apple Developer 계정이 필요하며, Xcode에서 Signing & Capabilities 설정이 필요합니다.
 
 ## 빌드
 
-```bash
-# Android APK 빌드
-flutter build apk
+### Android
 
-# Android App Bundle 빌드
-flutter build appbundle
+```bash
+# Debug APK 빌드
+flutter build apk --debug
+
+# Release APK 빌드
+flutter build apk --release
+
+# Android App Bundle 빌드 (Play Store 배포용)
+flutter build appbundle --release
 ```
+
+빌드된 파일 위치:
+- APK: `build/app/outputs/flutter-apk/app-release.apk`
+- AAB: `build/app/outputs/bundle/release/app-release.aab`
+
+### iOS (macOS 전용)
+
+```bash
+# iOS 앱 빌드
+flutter build ios --release
+
+# IPA 파일 생성 (배포용)
+flutter build ipa --release
+```
+
+> **Note**: iOS 배포를 위해서는 Apple Developer Program 가입이 필요합니다.
 
 ## 프로젝트 구조
 
